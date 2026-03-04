@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Glossary on Agents</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f9f8f5;
+      color: #1a1a1a;
+      line-height: 1.7;
+      padding: 3rem 1.5rem;
+    }
+
+    .page {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.25rem;
+      color: #111;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 3rem;
+    }
+
+    /* Table of contents */
+    .toc {
+      background: #fff;
+      border: 1px solid #e5e3dc;
+      border-radius: 6px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .toc h2 {
+      font-size: 0.7rem;
+      font-weight: normal;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 1.2rem;
+    }
+
+    .toc-section {
+      margin-bottom: 1.2rem;
+    }
+
+    .toc-section-label {
+      font-size: 0.7rem;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 0.4rem;
+    }
+
+    .toc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0;
+    }
+
+    .toc-links a {
+      font-size: 0.875rem;
+      color: #4a7c59;
+      text-decoration: none;
+      margin-right: 0.8rem;
+    }
+
+    .toc-links a:hover { text-decoration: underline; }
+
+    /* Section heading */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: bold;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #e5e3dc;
+    }
+
+    /* Term entries */
+    .term {
+      margin-bottom: 2.5rem;
+      scroll-margin-top: 2rem;
+    }
+
+    .term-title {
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #111;
+      margin-bottom: 0.4rem;
+    }
+
+    .term-body {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .term-body a {
+      color: #4a7c59;
+      text-decoration: none;
+      border-bottom: 1px dotted #4a7c59;
+    }
+
+    .term-body a:hover {
+      border-bottom-style: solid;
+    }
+
+    .section-gap {
+      margin-top: 3.5rem;
+    }
+
+    .back-top {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: #bbb;
+      text-decoration: none;
+      margin-top: 0.6rem;
+    }
+    .back-top:hover { color: #4a7c59; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <h1>Mini Glossary on Agents</h1>
+  <p class="subtitle">A concise reference for AI agent concepts and model terminology.</p>
+
+  <!-- Table of Contents -->
+  <nav class="toc" id="top">
+    <h2>Contents</h2>
+
+    <div class="toc-section">
+      <div class="toc-section-label">Agents</div>
+      <div class="toc-links">
+        <a href="#agent">Agent</a>
+        <a href="#sub-agent">Sub-Agent</a>
+        <a href="#agents-md">AGENTS.md</a>
+        <a href="#claude-md">CLAUDE.md</a>
+        <a href="#agent-harness">Agent Harness</a>
+        <a href="#mcp">Model Context Protocol</a>
+        <a href="#agent-skills">Agent Skills</a>
+        <a href="#agent-heartbeat">Agent Heartbeat</a>
+        <a href="#tool-calling">Tool Calling</a>
+        <a href="#context-window">Context Window</a>
+        <a href="#compaction">Compaction</a>
+        <a href="#context-engineering">Context Engineering</a>
+        <a href="#fsm">Finite-State Machine</a>
+        <a href="#ralph-loop">Ralph Wiggum Loop</a>
+        <a href="#backpressure">Agent Backpressure</a>
+        <a href="#steering-message">Steering Message</a>
+        <a href="#follow-up-message">Follow-up Message</a>
+        <a href="#provider-registry">Provider Registry</a>
+        <a href="#swarm-analysis">Swarm Analysis</a>
+      </div>
+    </div>
+
+    <div class="toc-section">
+      <div class="toc-section-label">Models</div>
+      <div class="toc-links">
+        <a href="#token">Token &amp; Tokenizers</a>
+        <a href="#streaming">Streaming</a>
+        <a href="#inference">Inference</a>
+        <a href="#system-prompt">System Prompt</a>
+        <a href="#prompt-injection">Prompt Injection</a>
+        <a href="#transformer">Transformer</a>
+        <a href="#gpt">GPT</a>
+        <a href="#temperature">Temperature</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- AGENTS SECTION -->
+  <div class="section-label">Agents</div>
+
+  <div class="term" id="agent">
+    <div class="term-title">Agent</div>
+    <p class="term-body">An agent uses model-reasoning to plan, execute actions, observe results and adapt its approach over multiple turns using the observe-think-act loop and <a href="#tool-calling">tool calling</a> to get more data into the loop.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="sub-agent">
+    <div class="term-title">Sub-Agent</div>
+    <p class="term-body">A child <a href="#agent">agent</a> spawned by a parent agent into a fresh <a href="#context-window">context window</a>, enabling memory isolation for a bounded unit of work, bounded tasks and irrelevant intermediate states.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="agents-md">
+    <div class="term-title">AGENTS.md</div>
+    <p class="term-body">An open &amp; standard vendor-neutral file format proposed by Geoffrey Huntley in 06/2025 for instructions to AI coding agents, now governed by Agentic AI Foundation (AAIF) under the Linux Foundation.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="claude-md">
+    <div class="term-title">CLAUDE.md</div>
+    <p class="term-body">A Claude-specific variant of <a href="#agents-md">AGENTS.md</a> which is automatically added to context and includes persistent, project-specific instructions, giving the <a href="#agent">agent</a> immediate context about the codebase's architecture, build commands, testing procedures and coding conventions.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="agent-harness">
+    <div class="term-title">Agent Harness</div>
+    <p class="term-body">The orchestration layer around an <a href="#agent">agent</a> that constructs context, assembles the <a href="#system-prompt">system prompt</a>, reads the <a href="#agents-md">AGENTS.md</a>, executes <a href="#tool-calling">tool calls</a>, enforces guardrails and decides when to loop — sort of an operating system for the agent.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="mcp">
+    <div class="term-title">Model Context Protocol (MCP)</div>
+    <p class="term-body">Open standard by Anthropic that defines how <a href="#agent">agents</a> connect to external sources in a client-server architecture to discover and invoke resources on behalf of the language model, loaded in the <a href="#context-window">context window</a> in a similar way as static linking libraries in software.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="agent-skills">
+    <div class="term-title">Agent Skills</div>
+    <p class="term-body">Instruction sets that an <a href="#agent">agent</a> lazy-loads into its <a href="#context-window">context window</a> only when it determines they are relevant to the current task — the opposite of <a href="#mcp">MCP</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="agent-heartbeat">
+    <div class="term-title">Agent Heartbeat</div>
+    <p class="term-body">A liveness detection mechanism where an <a href="#agent">agent</a> periodically updates a timestamp in a shared database, allowing a monitoring system to detect crashed agents and automatically reassign their uncompleted work.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="tool-calling">
+    <div class="term-title">Tool Calling</div>
+    <p class="term-body">A mechanism that allows large language models to query a database, call a web API or run a calculation — and feed the result back to the model as a new message in the <a href="#context-window">context window</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="context-window">
+    <div class="term-title">Context Window</div>
+    <p class="term-body">A fixed-size buffer of tokens that an LLM can "see" at once, including everything the model reads (the <a href="#system-prompt">system prompt</a>, conversation history, <a href="#tool-calling">tool</a> definitions, and tool results) plus everything it writes (the response text and any tool calls).</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="compaction">
+    <div class="term-title">Compaction</div>
+    <p class="term-body">A "garbage collection" strategy that removes older messages from an <a href="#agent">agent</a>'s conversation to free space in the <a href="#context-window">context window</a>, usually dangerous for hallucinations and mitigated by pinning critical allocations (<a href="#system-prompt">system prompt</a>, specs, .md files), spawning <a href="#sub-agent">sub-agents</a> for fresh contexts, or <a href="#ralph-loop">Ralph loops</a> with persistence in between.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="context-engineering">
+    <div class="term-title">Context Engineering</div>
+    <p class="term-body">The <a href="#context-window">context window</a> is analogous to RAM and we design, manage and optimise the information in it to optimise the reliability and quality of model output — with allocations, deallocations, caring for fixed allocations, memory isolation via <a href="#sub-agent">sub-agents</a> and context budgeting.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="fsm">
+    <div class="term-title">Finite-State Machine (FSM)</div>
+    <p class="term-body">A way to enforce sequences of operations in an <a href="#agent">agent</a> loop by modelling which transitions are legal and preventing the system from entering invalid states — like executing a <a href="#tool-calling">tool</a> while already executing one, or producing a response before processing a tool result. Primarily implemented as software code to maintain determinism.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="ralph-loop">
+    <div class="term-title">Ralph Wiggum Loop</div>
+    <p class="term-body">A pattern for iteration over perfection, where work is split into small iterations and each iteration runs in a fresh <a href="#context-window">context window</a> instead of keeping one long chat alive until it degrades — <code>while true; do</code> — used with <a href="#backpressure">backpressure</a> and <a href="#sub-agent">sub-agents</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="backpressure">
+    <div class="term-title">Agent Backpressure</div>
+    <p class="term-body">The practice of surrounding an <a href="#agent">agent</a> with automated checks like type checkers, test suites, linters and pre-commit hooks that allow AI agents to detect and correct their own mistakes without human intervention, sometimes implemented using tools like LangGraph.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="steering-message">
+    <div class="term-title">Steering Message</div>
+    <p class="term-body">A user message injected into an <a href="#agent">agent</a>'s conversation mid-run that interrupts remaining <a href="#tool-calling">tool executions</a> and redirects the agent's behavior, typically between tool calls. Contrast with <a href="#follow-up-message">follow-up messages</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="follow-up-message">
+    <div class="term-title">Follow-up Message</div>
+    <p class="term-body">Unlike <a href="#steering-message">steering messages</a>, these are user messages queued and delivered after the <a href="#agent">agent</a> completes all of its <a href="#tool-calling">tool calls</a> and produces a response, then triggering a new turn.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="provider-registry">
+    <div class="term-title">Provider Registry</div>
+    <p class="term-body">Essentially a config file to decouple from the LLM provider and to be able to change models — for example from Anthropic to Mistral, including mid-conversation — enabling multi-model <a href="#agent">agents</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="swarm-analysis">
+    <div class="term-title">Swarm Analysis</div>
+    <p class="term-body">At planning time before executing a large epic, swarm analysis goes through the graph of work items and groups them into waves — sets of tasks that share the same depth level and can execute concurrently, waiting for each other before the next wave begins.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <!-- MODELS SECTION -->
+  <div class="section-label section-gap">Models</div>
+
+  <div class="term" id="token">
+    <div class="term-title">Token &amp; Tokenizers</div>
+    <p class="term-body">The tokenizer is the interface between human-readable text and the model's numerical world. It converts text into a sequence where most modern <a href="#gpt">GPT</a> models use subword tokenization, meaning "hello" becomes a token group like "hel, lo".</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="streaming">
+    <div class="term-title">Streaming</div>
+    <p class="term-body">A technique where a language model sends its response incrementally as it is generated, rather than waiting for the complete output, allowing for early cancellation if the model is on a wrong path.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="inference">
+    <div class="term-title">Inference</div>
+    <p class="term-body">The process of running a trained model on new inputs to produce predictions, while not updating weights and being stateless — using the <a href="#context-window">context window</a> as the only memory.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="system-prompt">
+    <div class="term-title">System Prompt</div>
+    <p class="term-body">A fixed allocation message placed as the first allocation in an LLM's <a href="#context-window">context window</a> (followed by the <a href="#agent-harness">harness</a> prompt, <a href="#agents-md">AGENTS.md</a> and <a href="#mcp">MCP</a>), defining the model's behavior, personality, capabilities and constraints — treated with higher trust by most models.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="prompt-injection">
+    <div class="term-title">Prompt Injection</div>
+    <p class="term-body">An adversarial attack in which a user crafts input that overrides or manipulates a language model's <a href="#system-prompt">system prompt</a> instructions, causing it to behave in unintended ways.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="transformer">
+    <div class="term-title">Transformer</div>
+    <p class="term-body">A neural network architecture based on self-attention mechanisms, introduced in <em>Attention Is All You Need</em>. Transformers are the foundation of LLMs, used for machine translation, text summarization and image analysis.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="gpt">
+    <div class="term-title">GPT — Generative Pre-trained Transformer</div>
+    <p class="term-body">A family of decoder-only language models built on the <a href="#transformer">Transformer</a> architecture, trained on large text corpora using a simple objective: predict the next <a href="#token">token</a> in a sequence.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="temperature">
+    <div class="term-title">Temperature (Sampling)</div>
+    <p class="term-body">A parameter that controls how random a language model's output is during text generation. Low temperature produces more deterministic outputs; higher temperature produces more varied and surprising (creative) text, giving lower-probability <a href="#token">tokens</a> more chance of being selected.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+</div>
+</body>
+</html>
