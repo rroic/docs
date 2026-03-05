@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Glossary on Agents</title>
+  <title>Mini Glossary on AI Agents, Models &amp; Architecture</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -82,13 +82,14 @@
 
     /* Section heading */
     .section-label {
-      font-size: 0.7rem;
-      font-weight: bold;
-      letter-spacing: 0.14em;
+      font-size: 1.5rem;
+      font-weight: normal;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: #aaa;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
+      color: #888;
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
       border-bottom: 1px solid #e5e3dc;
     }
 
@@ -132,13 +133,32 @@
       margin-top: 0.6rem;
     }
     .back-top:hover { color: #4a7c59; }
+
+    details.see-more { margin-top: 0; }
+    details.see-more > summary {
+      list-style: none;
+      cursor: pointer;
+      display: block;
+      font-size: 1.4rem;
+      color: #4a7c59;
+      letter-spacing: 0.04em;
+      padding: 0.5rem 0;
+      margin-bottom: 2rem;
+      border-top: 1px dashed #d8d5ce;
+      user-select: none;
+      text-align: center;
+    }
+    details.see-more > summary::-webkit-details-marker { display: none; }
+    details.see-more > summary::marker { display: none; }
+    details.see-more > summary::before { content: '+ '; font-weight: bold; }
+    details.see-more[open] > summary::before { content: '− '; }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <h1>Mini Glossary on Agents</h1>
-  <p class="subtitle">A concise reference for AI agent concepts and model terminology.</p>
+  <h1>Mini Glossary on AI Agents, Models &amp; Architecture</h1>
+  <p class="subtitle">One sentence per item.</p>
 
   <!-- Table of Contents -->
   <nav class="toc" id="top">
@@ -149,18 +169,18 @@
       <div class="toc-links">
         <a href="#agent">Agent</a>
         <a href="#sub-agent">Sub-Agent</a>
-        <a href="#agents-md">AGENTS.md</a>
-        <a href="#claude-md">CLAUDE.md</a>
+        <a href="#tool-calling">Tool Calling</a>
         <a href="#agent-harness">Agent Harness</a>
+        <a href="#context-window">Context Window</a>
+        <a href="#context-engineering">Context Engineering</a>
+        <a href="#compaction">Compaction</a>
         <a href="#mcp">Model Context Protocol</a>
         <a href="#agent-skills">Agent Skills</a>
-        <a href="#agent-heartbeat">Agent Heartbeat</a>
-        <a href="#tool-calling">Tool Calling</a>
-        <a href="#context-window">Context Window</a>
-        <a href="#compaction">Compaction</a>
-        <a href="#context-engineering">Context Engineering</a>
         <a href="#fsm">Finite-State Machine</a>
         <a href="#ralph-loop">Ralph Wiggum Loop</a>
+        <a href="#agents-md">AGENTS.md</a>
+        <a href="#claude-md">CLAUDE.md</a>
+        <a href="#agent-heartbeat">Agent Heartbeat</a>
         <a href="#backpressure">Agent Backpressure</a>
         <a href="#steering-message">Steering Message</a>
         <a href="#follow-up-message">Follow-up Message</a>
@@ -170,16 +190,61 @@
     </div>
 
     <div class="toc-section">
-      <div class="toc-section-label">Models</div>
+      <div class="toc-section-label">Models &amp; Training</div>
       <div class="toc-links">
-        <a href="#token">Token &amp; Tokenizers</a>
-        <a href="#streaming">Streaming</a>
-        <a href="#inference">Inference</a>
-        <a href="#system-prompt">System Prompt</a>
-        <a href="#prompt-injection">Prompt Injection</a>
-        <a href="#transformer">Transformer</a>
+        <a href="#neural-network">Neural Network</a>
+        <a href="#generative-ai">Generative AI</a>
+        <a href="#llm">LLM</a>
         <a href="#gpt">GPT</a>
+        <a href="#transformer">Transformer</a>
+        <a href="#foundation-model">Foundation Model</a>
+        <a href="#system-prompt">System Prompt</a>
+        <a href="#inference">Inference</a>
+        <a href="#pretraining">Pre-training</a>
+        <a href="#token">Token &amp; Tokenizers</a>
+        <a href="#parameter">Weight</a>
+        <a href="#finetuning">Fine-tuning</a>
+        <a href="#distillation">Distillation</a>
+        <a href="#ollama">Ollama</a>
         <a href="#temperature">Temperature</a>
+        <a href="#prompt-injection">Prompt Injection</a>
+        <a href="#rag">RAG</a>
+        <a href="#hallucination">Hallucination</a>
+        <a href="#prompt-engineering">Prompt Engineering</a>
+        <a href="#guardrails">Guardrails</a>
+        <a href="#embedding">Embedding</a>
+        <a href="#attention">Attention Mechanism</a>
+        <a href="#rlhf">RLHF</a>
+        <a href="#loss-function">Loss Function</a>
+        <a href="#gradient-descent">Gradient Descent</a>
+        <a href="#backprop">Backpropagation</a>
+        <a href="#learning-rate">Learning Rate</a>
+        <a href="#hyperparameter">Hyperparameter</a>
+        <a href="#overfitting">Overfitting</a>
+        <a href="#checkpoint">Checkpoint</a>
+        <a href="#quantization">Quantization</a>
+        <a href="#lora">LoRA</a>
+        <a href="#streaming">Streaming</a>
+        <a href="#grounding">Grounding</a>
+        <a href="#multimodal">Multimodal Model</a>
+        <a href="#few-shot">Few-shot Prompting</a>
+      </div>
+    </div>
+    <div class="toc-section">
+      <div class="toc-section-label">Agentic Software Development</div>
+      <div class="toc-links">
+        <a href="#claude-code">Claude Code</a>
+        <a href="#opencode">OpenCode</a>
+        <a href="#learn-mode">learn-style</a>
+        <a href="#cursor">Cursor</a>
+        <a href="#gpt-codex">GPT Codex</a>
+        <a href="#open-source-models">Open Source Coding Models</a>
+        <a href="#skills">Skills</a>
+        <a href="#hooks">Hooks</a>
+        <a href="#plan-mode">Plan Mode</a>
+        <a href="#claude-plugins">Claude Plugins</a>
+        <a href="#prompt-caching">Prompt Caching</a>
+        <a href="#monorepo">Monorepo</a>
       </div>
     </div>
   </nav>
@@ -189,31 +254,43 @@
 
   <div class="term" id="agent">
     <div class="term-title">Agent</div>
-    <p class="term-body">An agent uses model-reasoning to plan, execute actions, observe results and adapt its approach over multiple turns using the observe-think-act loop and <a href="#tool-calling">tool calling</a> to get more data into the loop.</p>
+    <p class="term-body">An Agent delivers complex results doing multiple rounds in the observe-think-act loop while leveraging LLMs to plan, execute actions, observe results and adapt its approach and <a href="#tool-calling">Tool calling</a> to get more data into the loop.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
   <div class="term" id="sub-agent">
     <div class="term-title">Sub-Agent</div>
-    <p class="term-body">A child <a href="#agent">agent</a> spawned by a parent agent into a fresh <a href="#context-window">context window</a>, enabling memory isolation for a bounded unit of work, bounded tasks and irrelevant intermediate states.</p>
+    <p class="term-body">A child <a href="#agent">agent</a> spawned by a parent agent into a fresh <a href="#context-window">context window</a>, enabling memory isolation for: bounded units of work, bounded tasks, irrelevant intermediate states and other cases.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
-  <div class="term" id="agents-md">
-    <div class="term-title">AGENTS.md</div>
-    <p class="term-body">An open &amp; standard vendor-neutral file format proposed by Geoffrey Huntley in 06/2025 for instructions to AI coding agents, now governed by Agentic AI Foundation (AAIF) under the Linux Foundation.</p>
-    <a class="back-top" href="#top">↑ top</a>
-  </div>
-
-  <div class="term" id="claude-md">
-    <div class="term-title">CLAUDE.md</div>
-    <p class="term-body">A Claude-specific variant of <a href="#agents-md">AGENTS.md</a> which is automatically added to context and includes persistent, project-specific instructions, giving the <a href="#agent">agent</a> immediate context about the codebase's architecture, build commands, testing procedures and coding conventions.</p>
+  <div class="term" id="tool-calling">
+    <div class="term-title">Tool Calling</div>
+    <p class="term-body">A mechanism that allows large language models to query a database, call a web API or run a calculation — and feed the result back to the model as a new message in the <a href="#context-window">context window</a>.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
   <div class="term" id="agent-harness">
     <div class="term-title">Agent Harness</div>
     <p class="term-body">The orchestration layer around an <a href="#agent">agent</a> that constructs context, assembles the <a href="#system-prompt">system prompt</a>, reads the <a href="#agents-md">AGENTS.md</a>, executes <a href="#tool-calling">tool calls</a>, enforces guardrails and decides when to loop — sort of an operating system for the agent.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="context-window">
+    <div class="term-title">Context Window</div>
+    <p class="term-body">A fixed-size buffer of <a href="#token">tokens</a> that an LLM can "see" at once, including everything the model reads (the <a href="#system-prompt">system prompt</a>, conversation history, <a href="#tool-calling">tool</a> definitions, and tool results) plus everything it writes (the response text and any tool calls).</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="context-engineering">
+    <div class="term-title">Context Engineering</div>
+    <p class="term-body">The <a href="#context-window">context window</a> is analogous to RAM and we design, manage and optimise the information in it to optimise the reliability and quality of model output — with allocations, deallocations, caring for fixed allocations, memory isolation via <a href="#sub-agent">sub-agents</a> and context budgeting.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="compaction">
+    <div class="term-title">Compaction</div>
+    <p class="term-body">A "garbage collection" strategy that removes older messages from an <a href="#agent">agent</a>'s conversation to free space in the <a href="#context-window">context window</a>, usually dangerous for hallucinations and mitigated by pinning critical allocations (<a href="#system-prompt">system prompt</a>, specs, .md files), spawning <a href="#sub-agent">sub-agents</a> for fresh contexts, or <a href="#ralph-loop">Ralph loops</a> with persistence in between.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
@@ -229,45 +306,36 @@
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
-  <div class="term" id="agent-heartbeat">
-    <div class="term-title">Agent Heartbeat</div>
-    <p class="term-body">A liveness detection mechanism where an <a href="#agent">agent</a> periodically updates a timestamp in a shared database, allowing a monitoring system to detect crashed agents and automatically reassign their uncompleted work.</p>
-    <a class="back-top" href="#top">↑ top</a>
-  </div>
-
-  <div class="term" id="tool-calling">
-    <div class="term-title">Tool Calling</div>
-    <p class="term-body">A mechanism that allows large language models to query a database, call a web API or run a calculation — and feed the result back to the model as a new message in the <a href="#context-window">context window</a>.</p>
-    <a class="back-top" href="#top">↑ top</a>
-  </div>
-
-  <div class="term" id="context-window">
-    <div class="term-title">Context Window</div>
-    <p class="term-body">A fixed-size buffer of tokens that an LLM can "see" at once, including everything the model reads (the <a href="#system-prompt">system prompt</a>, conversation history, <a href="#tool-calling">tool</a> definitions, and tool results) plus everything it writes (the response text and any tool calls).</p>
-    <a class="back-top" href="#top">↑ top</a>
-  </div>
-
-  <div class="term" id="compaction">
-    <div class="term-title">Compaction</div>
-    <p class="term-body">A "garbage collection" strategy that removes older messages from an <a href="#agent">agent</a>'s conversation to free space in the <a href="#context-window">context window</a>, usually dangerous for hallucinations and mitigated by pinning critical allocations (<a href="#system-prompt">system prompt</a>, specs, .md files), spawning <a href="#sub-agent">sub-agents</a> for fresh contexts, or <a href="#ralph-loop">Ralph loops</a> with persistence in between.</p>
-    <a class="back-top" href="#top">↑ top</a>
-  </div>
-
-  <div class="term" id="context-engineering">
-    <div class="term-title">Context Engineering</div>
-    <p class="term-body">The <a href="#context-window">context window</a> is analogous to RAM and we design, manage and optimise the information in it to optimise the reliability and quality of model output — with allocations, deallocations, caring for fixed allocations, memory isolation via <a href="#sub-agent">sub-agents</a> and context budgeting.</p>
-    <a class="back-top" href="#top">↑ top</a>
-  </div>
-
   <div class="term" id="fsm">
     <div class="term-title">Finite-State Machine (FSM)</div>
-    <p class="term-body">A way to enforce sequences of operations in an <a href="#agent">agent</a> loop by modelling which transitions are legal and preventing the system from entering invalid states — like executing a <a href="#tool-calling">tool</a> while already executing one, or producing a response before processing a tool result. Primarily implemented as software code to maintain determinism.</p>
+    <p class="term-body">A way to enforce sequences of operations in an <a href="#agent">agent</a> loop by modelling which transitions are legal and preventing the system from entering invalid states — like executing a <a href="#tool-calling">tool</a> while already executing one, or producing a response before processing a tool result, primarily implemented as software code to maintain determinism.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
   <div class="term" id="ralph-loop">
     <div class="term-title">Ralph Wiggum Loop</div>
     <p class="term-body">A pattern for iteration over perfection, where work is split into small iterations and each iteration runs in a fresh <a href="#context-window">context window</a> instead of keeping one long chat alive until it degrades — <code>while true; do</code> — used with <a href="#backpressure">backpressure</a> and <a href="#sub-agent">sub-agents</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="agents-md">
+    <div class="term-title">AGENTS.md</div>
+    <p class="term-body">An open &amp; standard vendor-neutral file format proposed by Geoffrey Huntley in 06/2025 for instructions to AI coding agents, now governed by Agentic AI Foundation (AAIF) under the Linux Foundation.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="claude-md">
+    <div class="term-title">CLAUDE.md</div>
+    <p class="term-body">A Claude-specific variant of <a href="#agents-md">AGENTS.md</a> which is automatically added to context and includes persistent, project-specific instructions, giving the <a href="#agent">agent</a> immediate context about the codebase's architecture, build commands, testing procedures and coding conventions.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <details class="see-more">
+  <summary>Unhide more items from this section</summary>
+
+  <div class="term" id="agent-heartbeat">
+    <div class="term-title">Agent Heartbeat</div>
+    <p class="term-body">A liveness detection mechanism where an <a href="#agent">agent</a> periodically updates a timestamp in a shared database, allowing a monitoring system to detect crashed agents and automatically reassign their uncompleted work.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
@@ -279,7 +347,7 @@
 
   <div class="term" id="steering-message">
     <div class="term-title">Steering Message</div>
-    <p class="term-body">A user message injected into an <a href="#agent">agent</a>'s conversation mid-run that interrupts remaining <a href="#tool-calling">tool executions</a> and redirects the agent's behavior, typically between tool calls. Contrast with <a href="#follow-up-message">follow-up messages</a>.</p>
+    <p class="term-body">A user message injected into an <a href="#agent">agent</a>'s conversation mid-run that interrupts remaining <a href="#tool-calling">tool executions</a> and redirects the agent's behavior, typically between tool calls and in contrast with <a href="#follow-up-message">follow-up messages</a>.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
@@ -297,60 +365,311 @@
 
   <div class="term" id="swarm-analysis">
     <div class="term-title">Swarm Analysis</div>
-    <p class="term-body">At planning time before executing a large epic, swarm analysis goes through the graph of work items and groups them into waves — sets of tasks that share the same depth level and can execute concurrently, waiting for each other before the next wave begins.</p>
+    <p class="term-body">At planning time before executing a large epic, swarm analysis goes through the graph of work items and groups them into waves — sets of tasks that share the same depth level and can be done by sub-agents concurrently, waiting for each other before the next wave begins.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
-  <!-- MODELS SECTION -->
-  <div class="section-label section-gap">Models</div>
+  </details>
 
-  <div class="term" id="token">
-    <div class="term-title">Token &amp; Tokenizers</div>
-    <p class="term-body">The tokenizer is the interface between human-readable text and the model's numerical world. It converts text into a sequence where most modern <a href="#gpt">GPT</a> models use subword tokenization, meaning "hello" becomes a token group like "hel, lo".</p>
+  <!-- MODELS & TRAINING SECTION -->
+  <div class="section-label section-gap">Models &amp; Training</div>
+
+  <div class="term" id="neural-network">
+    <div class="term-title">Neural Network</div>
+    <p class="term-body">A subset of machine learning inspired by the human brain's structure, consisting of interconnected layers of artificial neurons (nodes) that process information, identify patterns, and learn from data by adjusting numerical <a href="#parameter">weights</a> through training; LLMs are neural networks of the Transformer architecture.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
-  <div class="term" id="streaming">
-    <div class="term-title">Streaming</div>
-    <p class="term-body">A technique where a language model sends its response incrementally as it is generated, rather than waiting for the complete output, allowing for early cancellation if the model is on a wrong path.</p>
+  <div class="term" id="generative-ai">
+    <div class="term-title">Generative AI</div>
+    <p class="term-body">A class of AI systems trained to produce new content — text, images, audio, video or code — by learning the statistical patterns of their training data, as opposed to discriminative models that only classify or predict; <a href="#llm">large language models</a> are the most prominent example.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
-  <div class="term" id="inference">
-    <div class="term-title">Inference</div>
-    <p class="term-body">The process of running a trained model on new inputs to produce predictions, while not updating weights and being stateless — using the <a href="#context-window">context window</a> as the only memory.</p>
-    <a class="back-top" href="#top">↑ top</a>
-  </div>
-
-  <div class="term" id="system-prompt">
-    <div class="term-title">System Prompt</div>
-    <p class="term-body">A fixed allocation message placed as the first allocation in an LLM's <a href="#context-window">context window</a> (followed by the <a href="#agent-harness">harness</a> prompt, <a href="#agents-md">AGENTS.md</a> and <a href="#mcp">MCP</a>), defining the model's behavior, personality, capabilities and constraints — treated with higher trust by most models.</p>
-    <a class="back-top" href="#top">↑ top</a>
-  </div>
-
-  <div class="term" id="prompt-injection">
-    <div class="term-title">Prompt Injection</div>
-    <p class="term-body">An adversarial attack in which a user crafts input that overrides or manipulates a language model's <a href="#system-prompt">system prompt</a> instructions, causing it to behave in unintended ways.</p>
-    <a class="back-top" href="#top">↑ top</a>
-  </div>
-
-  <div class="term" id="transformer">
-    <div class="term-title">Transformer</div>
-    <p class="term-body">A neural network architecture based on self-attention mechanisms, introduced in <em>Attention Is All You Need</em>. Transformers are the foundation of LLMs, used for machine translation, text summarization and image analysis.</p>
+  <div class="term" id="llm">
+    <div class="term-title">LLM — Large Language Model</div>
+    <p class="term-body">A <a href="#generative-ai">generative AI</a> model with billions of <a href="#parameter">parameters</a> trained on massive text datasets to understand and generate human language; the engine powering tools like Claude, GPT-4 and Gemini, and the foundation of every <a href="#agent">agentic</a> coding assistant.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
   <div class="term" id="gpt">
     <div class="term-title">GPT — Generative Pre-trained Transformer</div>
-    <p class="term-body">A family of decoder-only language models built on the <a href="#transformer">Transformer</a> architecture, trained on large text corpora using a simple objective: predict the next <a href="#token">token</a> in a sequence.</p>
+    <p class="term-body">A family of decoder-only language models built on the <a href="#transformer">Transformer</a> architecture, trained on large text corpora using a simple objective: predict the next <a href="#token">token</a> in a sequence; the same architecture used by Claude, Gemini and most major language models today.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="transformer">
+    <div class="term-title">Transformer</div>
+    <p class="term-body">A <a href="#neural-network">neural network</a> architecture built entirely on the <a href="#attention">attention mechanism</a>, introduced in <em>Attention Is All You Need</em> (2017); it replaced recurrent architectures and became the foundation of all modern large language models including <a href="#gpt">GPT</a> and Claude.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="foundation-model">
+    <div class="term-title">Foundation Model</div>
+    <p class="term-body">A large model trained on broad data through <a href="#pretraining">pre-training</a> that serves as a general-purpose model able to do image generation, text summary or coding; GPT-4, Claude and Gemini are all foundation models.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="system-prompt">
+    <div class="term-title">System Prompt</div>
+    <p class="term-body">A fixed allocation message placed as the first entry in an LLM's <a href="#context-window">context window</a> (followed by the <a href="#agent-harness">harness</a> prompt, <a href="#agents-md">AGENTS.md</a> and <a href="#mcp">MCP</a>), defining the model's behavior, personality, capabilities and constraints — treated with higher trust by most models.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="inference">
+    <div class="term-title">Inference</div>
+    <p class="term-body">The process of running a trained model on new inputs to produce predictions, without updating <a href="#parameter">weights</a> — the model is stateless between requests and uses only the <a href="#context-window">context window</a> as memory; <a href="#quantization">quantization</a> is a common technique to make inference faster and cheaper.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="pretraining">
+    <div class="term-title">Pre-training</div>
+    <p class="term-body">The first and computationally expensive phase of model development in which a <a href="#neural-network">neural network</a> is trained on massive unlabelled datasets — typically large portions of the web — to learn general statistical patterns in language by minimising a <a href="#loss-function">loss function</a> before any task-specific adaptation.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="token">
+    <div class="term-title">Token &amp; Tokenizers</div>
+    <p class="term-body">A token in LLMs is a small unit of text that the model reads and processes so instead of understanding full sentences or words directly, the model breaks text into smaller pieces called tokens (unbelievable - un, believ, able).</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="parameter">
+    <div class="term-title">Weight</div>
+    <p class="term-body">A weight is a learned numerical parameter that controls how strongly one piece of information influences another in a neural network, numbering in hundreds of billions per model, updated by <a href="#gradient-descent">gradient descent</a>; think of it as knowledge of the model.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="finetuning">
+    <div class="term-title">Fine-tuning</div>
+    <p class="term-body">Continued training of a <a href="#pretraining">pre-trained</a> model on a smaller, curated dataset to adapt its behaviour to a specific task, domain or style, updating the <a href="#parameter">weights</a> with a much lower <a href="#learning-rate">learning rate</a> to avoid erasing the general knowledge acquired during pre-training.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="distillation">
+    <div class="term-title">Distillation</div>
+    <p class="term-body">A training technique in which a smaller "student" model is trained to mimic the output distribution of a larger "teacher" <a href="#foundation-model">foundation model</a>, producing a compact model that retains much of the teacher's capability at a fraction of the inference cost.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="ollama">
+    <div class="term-title">Ollama</div>
+    <p class="term-body">A tool for downloading and running <a href="#open-source-models">open source models</a> locally on consumer hardware that exposes an OpenAI-compatible API, making it straightforward to swap cloud models for local ones in any agentic workflow without sending data to external providers.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
 
   <div class="term" id="temperature">
     <div class="term-title">Temperature (Sampling)</div>
-    <p class="term-body">A parameter that controls how random a language model's output is during text generation. Low temperature produces more deterministic outputs; higher temperature produces more varied and surprising (creative) text, giving lower-probability <a href="#token">tokens</a> more chance of being selected.</p>
+    <p class="term-body">A parameter that controls how random a language model's output is during text generation: low temperature produces more deterministic outputs; higher temperature produces more varied and surprising text, giving lower-probability <a href="#token">tokens</a> more chance of being selected.</p>
     <a class="back-top" href="#top">↑ top</a>
   </div>
+
+  <div class="term" id="prompt-injection">
+    <div class="term-title">Prompt Injection</div>
+    <p class="term-body">An adversarial attack in which a user crafts input that overrides or manipulates a language model's <a href="#system-prompt">system prompt</a> instructions, causing it to behave in unintended ways — a key security concern when building <a href="#agent">agents</a> that process untrusted external content.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="rag">
+    <div class="term-title">RAG — Retrieval-Augmented Generation</div>
+    <p class="term-body">A technique that grounds a language model's responses by first retrieving relevant passages from a knowledge base via semantic search and injecting them into the <a href="#context-window">context window</a>, enabling access to up-to-date or proprietary information without retraining the model and directly reducing <a href="#hallucination">hallucination</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="hallucination">
+    <div class="term-title">Hallucination</div>
+    <p class="term-body">When a language model generates plausible-sounding but factually incorrect or fabricated information, typically because the correct answer is absent from its training data or <a href="#context-window">context window</a>; the primary problem that <a href="#rag">RAG</a> and <a href="#grounding">grounding</a> techniques are designed to reduce.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="prompt-engineering">
+    <div class="term-title">Prompt Engineering</div>
+    <p class="term-body">The practice of deliberately crafting and structuring inputs to a language model — including the <a href="#system-prompt">system prompt</a>, examples and instructions — to elicit more accurate, consistent or structured outputs without modifying the model's <a href="#parameter">weights</a>; encompasses techniques like <a href="#few-shot">few-shot prompting</a> and chain-of-thought.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="guardrails">
+    <div class="term-title">Guardrails</div>
+    <p class="term-body">Input and output validation layers placed around a language model that detect and block unsafe, off-topic or policy-violating content before it reaches the model or the user, acting as a complement to <a href="#rlhf">RLHF</a> alignment and defending against <a href="#prompt-injection">prompt injection</a> attacks.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <details class="see-more">
+  <summary>Unhide more items from this section</summary>
+
+  <div class="term" id="embedding">
+    <div class="term-title">Embedding</div>
+    <p class="term-body">An embedding is a vector of numbers that represents the meaning of a token or text so a neural network can process it mathematically, capturing semantic relationships so that similar concepts end up geometrically close to each other — fed into the attention mechanism.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="rlhf">
+    <div class="term-title">RLHF — Reinforcement Learning from Human Feedback</div>
+    <p class="term-body">A training technique used to align a language model's outputs with human preferences: human raters compare model responses, a reward model is trained on those preferences, and the language model's <a href="#parameter">weights</a> are updated using reinforcement learning to maximise that reward signal — the primary method behind <a href="#finetuning">fine-tuning</a> Claude and ChatGPT for safe, helpful behaviour.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="loss-function">
+    <div class="term-title">Loss Function</div>
+    <p class="term-body">A mathematical function that measures how wrong a model's predictions are compared to the correct answers during training; the optimisation process uses <a href="#gradient-descent">gradient descent</a> to adjust the <a href="#parameter">weights</a> in the direction that minimises this value across the training dataset.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="gradient-descent">
+    <div class="term-title">Gradient Descent</div>
+    <p class="term-body">The iterative optimisation algorithm used to train <a href="#neural-network">neural networks</a> by computing the gradient of the <a href="#loss-function">loss function</a> with respect to every <a href="#parameter">weight</a> — via <a href="#backprop">backpropagation</a> — and nudging each weight in the direction that reduces the loss by a step size set by the <a href="#learning-rate">learning rate</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="backprop">
+    <div class="term-title">Backpropagation</div>
+    <p class="term-body">The algorithm that efficiently computes the gradients needed for <a href="#gradient-descent">gradient descent</a> by propagating the <a href="#loss-function">loss</a> signal backwards through every layer of the <a href="#neural-network">network</a> using the chain rule of calculus, making it practical to train models with billions of <a href="#parameter">parameters</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="learning-rate">
+    <div class="term-title">Learning Rate</div>
+    <p class="term-body">A <a href="#hyperparameter">hyperparameter</a> controlling how large a step <a href="#gradient-descent">gradient descent</a> takes when updating <a href="#parameter">weights</a>; too high and training diverges or overshoots minimal, too low and training stalls or converges to a poor solution.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="hyperparameter">
+    <div class="term-title">Hyperparameter</div>
+    <p class="term-body">Any configuration value that governs the training process itself — such as <a href="#learning-rate">learning rate</a>, batch size, number of layers, or context length — rather than a value learned from data; tuning hyperparameters is a major part of the model development workflow.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="overfitting">
+    <div class="term-title">Overfitting</div>
+    <p class="term-body">When a model learns the training data so precisely that it memorises noise rather than underlying patterns, causing strong performance on training data but poor generalisation to new, unseen examples; mitigated during <a href="#finetuning">fine-tuning</a> by using smaller datasets carefully and regularisation techniques.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="checkpoint">
+    <div class="term-title">Checkpoint</div>
+    <p class="term-body">A saved snapshot of a model's <a href="#parameter">weights</a> and optimiser state at a specific point during <a href="#pretraining">training</a>, used to resume interrupted training runs, compare intermediate model quality, or roll back to an earlier version if a later stage degrades performance.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="quantization">
+    <div class="term-title">Quantization</div>
+    <p class="term-body">A post-training compression technique that reduces the numerical precision of a model's <a href="#parameter">weights</a> (e.g., from 32-bit floats to 4-bit integers) to shrink its memory footprint and speed up <a href="#inference">inference</a> with minimal loss in output quality.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="lora">
+    <div class="term-title">LoRA — Low-Rank Adaptation</div>
+    <p class="term-body">A parameter-efficient <a href="#finetuning">fine-tuning</a> technique that freezes the original model <a href="#parameter">weights</a> and trains only small low-rank adapter matrices inserted into each layer, drastically reducing the memory and compute needed to specialise a large model for a new task.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="streaming">
+    <div class="term-title">Streaming</div>
+    <p class="term-body">A technique where a language model sends its response incrementally as it is generated — <a href="#token">token</a> by token — rather than waiting for the complete output, allowing for early cancellation if the model is on a wrong path.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="grounding">
+    <div class="term-title">Grounding</div>
+    <p class="term-body">The practice of anchoring a model's outputs to verifiable, external sources of truth — via <a href="#rag">RAG</a>, <a href="#tool-calling">tool calling</a>, citations or structured data — to reduce <a href="#hallucination">hallucination</a> and make responses auditable.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="multimodal">
+    <div class="term-title">Multimodal Model</div>
+    <p class="term-body">A model trained on multiple data modalities — such as text, images, audio or video — enabling it to understand and generate across those modalities within a single unified <a href="#transformer">Transformer</a>-based architecture, with each modality typically converted into <a href="#token">tokens</a> via a modality-specific encoder.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="few-shot">
+    <div class="term-title">Few-shot Prompting</div>
+    <p class="term-body">A <a href="#prompt-engineering">prompt engineering</a> technique where examples of the desired input-output format are included directly in the prompt, allowing the model to infer the task pattern from those demonstrations and apply it to new inputs without any <a href="#finetuning">fine-tuning</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  </details>
+
+  <!-- AGENTIC SOFTWARE DEVELOPMENT SECTION -->
+  <div class="section-label section-gap">Agentic Software Development</div>
+
+  <div class="term" id="claude-code">
+    <div class="term-title">Claude Code</div>
+    <p class="term-body">Anthropic's official CLI coding agent that runs in the terminal with direct filesystem, shell and git access, guided by <a href="#claude-md">CLAUDE.md</a> for project-specific instructions and extensible via <a href="#hooks">hooks</a> and <a href="#mcp">MCP</a> servers.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="opencode">
+    <div class="term-title">OpenCode</div>
+    <p class="term-body">An open-source terminal-based AI coding assistant built by SST, designed as an alternative to <a href="#claude-code">Claude Code</a> with a TUI interface and support for multiple model providers including local <a href="#open-source-models">open source models</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+
+  <div class="term" id="cursor">
+    <div class="term-title">Cursor</div>
+    <p class="term-body">An AI-native IDE forked from VS Code that embeds model-powered code completion, multi-file editing and chat directly in the editor, allowing the agent to read the entire codebase as context and apply diffs across multiple files in a single operation.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="gpt-codex">
+    <div class="term-title">GPT Codex</div>
+    <p class="term-body">OpenAI's cloud-based agentic coding system that runs tasks in a sandboxed environment — executing terminal commands, reading and writing files and submitting pull requests — positioned as a direct cloud-native competitor to <a href="#claude-code">Claude Code</a>.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="open-source-models">
+    <div class="term-title">Open Source Coding Models</div>
+    <p class="term-body"><a href="#foundation-model">Foundation models</a> with public weights specifically trained or fine-tuned for code generation and understanding — such as DeepSeek Coder, Qwen Coder, Kimi, MiniMax, Code Llama and StarCoder — that can be run locally via <a href="#ollama">Ollama</a>, customised with <a href="#lora">LoRA</a> on proprietary codebases, and used in agentic coding tools without API costs or data leaving the organisation.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="skills">
+    <div class="term-title">Skills</div>
+    <p class="term-body">Reusable markdown instruction files for <a href="#claude-code">Claude Code</a>, stored in <code>.claude/commands/</code> and invoked via slash commands, that are <a href="#agent-skills">lazy-loaded</a> into the <a href="#context-window">context window</a> only when relevant — packaging team workflows like deploy procedures, PR templates or code review checklists as on-demand context rather than permanent <a href="#system-prompt">system prompt</a> bloat.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="hooks">
+    <div class="term-title">Hooks</div>
+    <p class="term-body">Shell commands configured in an agent's settings to execute automatically before or after specific events — such as a <a href="#tool-calling">tool call</a> or file edit — used for validation, linting, test running and other forms of <a href="#backpressure">backpressure</a> without modifying the agent's own code.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="prompt-caching">
+    <div class="term-title">Prompt Caching</div>
+    <p class="term-body">An API-level optimisation that stores the <a href="#inference">KV state</a> for a repeated context prefix — such as a <a href="#system-prompt">system prompt</a> or large codebase snapshot — so subsequent requests reuse it rather than reprocessing, cutting both latency and cost on long-context agentic tasks.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="plan-mode">
+    <div class="term-title">Plan Mode</div>
+    <p class="term-body">A structured mode in agentic coding tools like <a href="#claude-code">Claude Code</a> where the agent explores the codebase and drafts a detailed implementation plan into the <a href="#context-window">context window</a> for human review and approval before writing or modifying any files, reducing wasted effort on large or ambiguous tasks.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="claude-plugins">
+    <div class="term-title">Claude Plugins</div>
+    <p class="term-body">Extensions that connect <a href="#claude-code">Claude</a> to third-party services and tools — such as web search, databases or internal APIs — expanding what the model can access and act on beyond its base capabilities, analogous to how <a href="#mcp">MCP</a> servers extend agentic workflows.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <details class="see-more">
+  <summary>Unhide more items from this section</summary>
+
+
+  <div class="term" id="monorepo">
+    <div class="term-title">Monorepo</div>
+    <p class="term-body">A single version-controlled repository containing multiple related projects or packages; in agentic development, monorepos give the agent unified cross-package context but require careful <a href="#claude-md">CLAUDE.md</a> scoping and <a href="#sub-agent">sub-agent</a> isolation to prevent one task's changes from cascading into unrelated parts of the codebase.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  <div class="term" id="learn-style">
+    <div class="term-title">Learn style</div>
+    <p class="term-body">Collaborative, learn-by-doing mode where Claude will not only share “Insights” while coding, but also ask you to contribute small, strategic pieces of code yourself, by adding TODO(human) markers in your code for you to implement.</p>
+    <a class="back-top" href="#top">↑ top</a>
+  </div>
+
+  </details>
 
 </div>
 </body>
