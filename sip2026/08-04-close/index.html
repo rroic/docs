@@ -74,6 +74,9 @@
   .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   }
+  body {
+    overflow: hidden;
+  }
 </style>
 <script>window.NOTCH_SECTION={nn:"08",totalMinutes:6,isIntro:false};</script>
 </head>
@@ -93,85 +96,36 @@
       <span id="section-timer" class="font-['Manrope'] font-bold text-sm text-secondary tabular-nums">--:-- / --:--</span>
     </div>
     <div class="w-[1px] h-8 bg-outline-variant/40 mx-1"></div>
-    <a id="nav-prev" href="../08-01-support-structure/index.html" class="flex items-center justify-center w-12 h-12 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 active:scale-95">
+    <a id="nav-prev" href="../08-03-infrastructure/index.html" class="flex items-center justify-center w-12 h-12 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 active:scale-95">
       <span class="material-symbols-outlined" style="font-size: 28px;">chevron_left</span>
     </a>
-    <span id="slide-counter" class="font-['Manrope'] font-bold text-base text-secondary tracking-widest select-none px-2">3 / 5</span>
-    <a id="nav-next" href="../08-03-infrastructure/index.html" class="flex items-center justify-center w-12 h-12 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 active:scale-95">
+    <span id="slide-counter" class="font-['Manrope'] font-bold text-base text-secondary tracking-widest select-none px-2">5 / 5</span>
+    <a id="nav-next" href="#" href="#" class="flex items-center justify-center w-12 h-12 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 active:scale-95">
       <span class="material-symbols-outlined" style="font-size: 28px;">chevron_right</span>
     </a>
   </div>
 </header>
 
-<!-- Main Content Canvas -->
-<main class="flex-grow pt-28 pb-24 px-16 max-w-7xl mx-auto w-full">
+<!-- Main Content Canvas — vertically centered -->
+<main class="flex-grow flex items-center justify-center px-24" style="height: 100vh;">
+  <div class="max-w-5xl w-full text-center">
 
-  <!-- Slide Header -->
-  <div class="mb-10 flex items-baseline gap-6 border-l-4 border-primary-container pl-6">
-    <div>
-      <span id="overhead-title" class="font-label text-[0.75rem] uppercase tracking-[0.2em] text-secondary font-bold block mb-2">Approach</span>
-      <h1 id="slide-title" class="font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-tight">
-        <span id="slide-title-main" class="text-on-surface">Architecture and code</span> <span id="slide-title-accent" class="text-[#2CC295]">ownership still apply</span>
-      </h1>
-    </div>
-  </div>
-
-  <!-- Bullet List -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
-
-    <!-- Bullet 1 -->
-    <div id="bullet-item-1" class="flex items-start gap-5 py-6 border-b border-outline-variant/30">
-      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
-      <div>
-        <h3 id="bullet-1-title" class="font-headline font-bold text-base text-on-surface mb-1">Classic software architecture still matters</h3>
-        <p id="bullet-1-body" class="font-body text-sm text-secondary leading-relaxed">Data models, APIs, integration patterns, security boundaries — none of that goes away. AI produces code faster, which means bad architecture scales faster too. Solid foundations are more important now, not less.</p>
-      </div>
+    <!-- Overhead label -->
+    <div class="flex items-center justify-center gap-4 mb-10">
+      <div class="w-8 h-[2px] bg-primary-container"></div>
+      <span id="overhead-title" class="font-label text-[0.75rem] uppercase tracking-[0.25em] text-secondary font-bold">AI Transformation</span>
+      <div class="w-8 h-[2px] bg-primary-container"></div>
     </div>
 
-    <!-- Bullet 2 -->
-    <div id="bullet-item-2" class="flex items-start gap-5 py-6 border-b border-outline-variant/30">
-      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
-      <div>
-        <h3 id="bullet-2-title" class="font-headline font-bold text-base text-on-surface mb-1">Design systems to accommodate agents from the start</h3>
-        <p id="bullet-2-body" class="font-body text-sm text-secondary leading-relaxed">Agents need APIs that are structured, predictable, and built with tool use in mind. Bolting AI onto an existing system rarely works well. Orchestration, memory, tool registries, evaluation pipelines — these are architectural decisions, not implementation details.</p>
-      </div>
-    </div>
+    <!-- Punchline text -->
+    <h1 id="punchline-text" class="font-headline font-extrabold tracking-tight leading-[1.05] text-on-surface mb-10"
+        style="font-size: clamp(3rem, 7vw, 6rem);">
+      <span id="punchline-main" class="text-on-surface">What comes next</span><br/>
+      <span id="punchline-accent" class="text-[#2CC295]">is ours to define.</span>
+    </h1>
 
-    <!-- Bullet 3 -->
-    <div id="bullet-item-3" class="flex items-start gap-5 py-6 border-b border-outline-variant/30">
-      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
-      <div>
-        <h3 id="bullet-3-title" class="font-headline font-bold text-base text-on-surface mb-1">You own what ships, regardless of who wrote it</h3>
-        <p id="bullet-3-body" class="font-body text-sm text-secondary leading-relaxed">AI-generated code can look correct and compile cleanly while being wrong in ways that matter. Review every line. Look for unnecessary complexity, edge case gaps, and security issues. You are accountable for what ships.</p>
-      </div>
-    </div>
-
-    <!-- Bullet 4 -->
-    <div id="bullet-item-4" class="flex items-start gap-5 py-6 border-b border-outline-variant/30">
-      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
-      <div>
-        <h3 id="bullet-4-title" class="font-headline font-bold text-base text-on-surface mb-1">More code output does not mean more value shipped</h3>
-        <p id="bullet-4-body" class="font-body text-sm text-secondary leading-relaxed">If review and QA cannot keep up with the volume AI generates, work piles up unvalidated. Shipping unreviewed AI output is how you get bugs at speed. Keep your PR scope small and your review discipline tight.</p>
-      </div>
-    </div>
-
-    <!-- Bullet 5 -->
-    <div id="bullet-item-5" class="flex items-start gap-5 py-6 border-b border-outline-variant/30" style="display:none">
-      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
-      <div>
-        <h3 id="bullet-5-title" class="font-headline font-bold text-base text-on-surface mb-1">Bullet title five</h3>
-        <p id="bullet-5-body" class="font-body text-sm text-secondary leading-relaxed">Supporting detail text for bullet point five.</p>
-      </div>
-    </div>
-
-    <!-- Bullet 6 -->
-    <div id="bullet-item-6" class="flex items-start gap-5 py-6 border-b border-outline-variant/30" style="display:none">
-      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
-      <div>
-        <h3 id="bullet-6-title" class="font-headline font-bold text-base text-on-surface mb-1">Bullet title six</h3>
-        <p id="bullet-6-body" class="font-body text-sm text-secondary leading-relaxed">Supporting detail text for bullet point six.</p>
-      </div>
-    </div>
+    <!-- Optional subtext -->
+    <p id="punchline-subtext" class="font-body text-xl text-secondary leading-relaxed max-w-2xl mx-auto">Designing systems that hold up, maintaining quality at speed, making the right calls on agentic architecture, building a reputation in a field that is still being defined.</p>
 
   </div>
 </main>
