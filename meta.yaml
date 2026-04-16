@@ -1,0 +1,23 @@
+title: "Notch All Hands — AI"
+subtitle: "The industry is at a strategic inflection point"
+date: 2026-04-01
+authors:
+  - name: "Darko Špoljarić"
+    role: "Notch VP AI"
+  - name: "Marko Štefančić"
+    role: "Notch CTO"
+  - name: "Vedran Pugar"
+    role: "Notch Engineering manager"
+  - name: "Lukša Kraljević"
+    role: "Notch principal engineer"
+  - name: "Marco Hrlić"
+    role: "Notch principal engineer"
+  - name: "Hrvoje Ruhek"
+    role: "Notch principal engineer"
+  - name: "Roko Roić"
+    role: "Co-founder"
+
+theme: company-standard   # references your presentation-standards skill
+
+# Slide count is determined by files in slides/
+# Layout options per slide: title | content | two-column | image-left | image-right | blank

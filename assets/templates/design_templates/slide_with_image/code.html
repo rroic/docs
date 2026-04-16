@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#d5e5f1",
+              "on-secondary-fixed": "#0e1d26",
+              "surface-container-lowest": "#ffffff",
+              "error": "#ba1a1a",
+              "secondary-fixed-dim": "#b9c9d5",
+              "surface-bright": "#f5faff",
+              "on-tertiary-fixed-variant": "#474646",
+              "primary-container": "#2cc295",
+              "tertiary": "#5f5e5e",
+              "secondary": "#51606b",
+              "on-error-container": "#93000a",
+              "surface-dim": "#ccdce9",
+              "on-background": "#0e1d26",
+              "on-surface-variant": "#3c4a43",
+              "surface-container-highest": "#d5e5f1",
+              "primary-fixed": "#72fac9",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#55656f",
+              "on-primary-fixed": "#002116",
+              "on-secondary": "#ffffff",
+              "on-surface": "#0e1d26",
+              "surface-container-low": "#e9f5ff",
+              "primary": "#006c50", // Darker Forest Green for accents
+              "brand-mint": "#2cc295", // Original Mint for titles
+              "inverse-on-surface": "#e4f3ff",
+              "outline-variant": "#bbcac1",
+              "inverse-primary": "#51ddae",
+              "primary-fixed-dim": "#51ddae",
+              "outline": "#6c7a73",
+              "surface-tint": "#006c50",
+              "tertiary-fixed": "#e5e2e1",
+              "on-tertiary-container": "#414040",
+              "on-primary-fixed-variant": "#00513b",
+              "tertiary-fixed-dim": "#c9c6c5",
+              "on-error": "#ffffff",
+              "surface-variant": "#d5e5f1",
+              "surface-container-high": "#daeaf7",
+              "tertiary-container": "#aeacab",
+              "on-secondary-fixed-variant": "#3a4953",
+              "on-primary-container": "#004a36",
+              "inverse-surface": "#23323c",
+              "background": "#f5faff",
+              "on-tertiary-fixed": "#1c1b1b",
+              "on-primary": "#ffffff",
+              "surface-container": "#e0f0fd",
+              "surface": "#f5faff",
+              "secondary-container": "#d2e2ee",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(16px);
+        background: rgba(255, 255, 255, 0.7);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar Navigation Shell -->
+<header class="bg-[#f5faff] dark:bg-[#0e1d26] top-0 z-50 fixed w-full">
+<div class="flex justify-between items-center w-full px-16 py-6 max-w-full">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-black text-[#0e1d26] dark:text-[#f5faff] font-['Plus_Jakarta_Sans'] tracking-tight">Notch</span>
+</div>
+<div class="flex items-center gap-3">
+  <a id="nav-agenda" href="#" class="flex items-center gap-2 font-['Manrope'] font-bold text-sm text-secondary hover:text-primary transition-colors duration-200">
+    <span class="material-symbols-outlined" style="font-size: 24px;">menu</span>
+    Agenda
+  </a>
+  <div class="w-[1px] h-8 bg-outline-variant/40 mx-1"></div>
+  <div id="section-timer-wrap" class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-secondary" style="font-size:16px;line-height:1;">timer</span>
+    <span id="section-timer" class="font-['Manrope'] font-bold text-sm text-secondary tabular-nums">--:-- / --:--</span>
+  </div>
+  <div class="w-[1px] h-8 bg-outline-variant/40 mx-1"></div>
+  <button id="nav-prev" class="flex items-center justify-center w-12 h-12 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 active:scale-95">
+    <span class="material-symbols-outlined" style="font-size: 28px;">chevron_left</span>
+  </button>
+  <span id="slide-counter" class="font-['Manrope'] font-bold text-base text-secondary tracking-widest select-none px-2">01 / 08</span>
+  <button id="nav-next" class="flex items-center justify-center w-12 h-12 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 active:scale-95">
+    <span class="material-symbols-outlined" style="font-size: 28px;">chevron_right</span>
+  </button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="min-h-screen pt-32 pb-24 px-16 lg:pl-32">
+<div class="max-w-7xl mx-auto">
+<!-- Kinetic Architect Layout Grid -->
+<div class="grid grid-cols-12 gap-y-12 lg:gap-x-12 items-center">
+<!-- Supporting Text Section (Left Asymmetric) -->
+<div class="col-span-12 lg:col-span-5 flex flex-col space-y-8 order-2 lg:order-1">
+<div class="flex items-center gap-3">
+<div class="w-10 h-[2px] bg-primary"></div>
+<span id="overhead-title" class="font-label text-[0.75rem] uppercase tracking-[0.15em] text-secondary font-bold">Overhead Title</span>
+</div>
+<div class="space-y-6">
+<h1 id="slide-title" class="font-headline text-5xl lg:text-7xl font-extrabold text-brand-mint leading-[1.1] tracking-tighter">
+                        This is a title
+                    </h1>
+<div class="w-16 h-2 bg-brand-mint rounded-full"></div>
+<p class="font-body text-lg text-secondary leading-relaxed max-w-md">
+                        The Notch Kinetic system prioritizes structural asymmetry and tonal depth. By utilizing overlapping surface tiers, we break the static nature of digital slides in favor of a bespoke workspace.
+                    </p>
+</div>
+<!-- Functional Meta Group -->
+<div class="grid grid-cols-2 gap-8 pt-4">
+<div class="flex flex-col border-l-4 border-primary pl-6 py-2">
+<span class="font-label text-[0.65rem] uppercase tracking-wider text-secondary/60 mb-1">Efficiency Gain</span>
+<span class="font-headline text-3xl font-bold text-on-surface">42%</span>
+</div>
+<div class="flex flex-col border-l-4 border-primary/40 pl-6 py-2">
+<span class="font-label text-[0.65rem] uppercase tracking-wider text-secondary/60 mb-1">Scale Factor</span>
+<span class="font-headline text-3xl font-bold text-on-surface">1.8x</span>
+</div>
+</div>
+</div>
+<!-- Large High-Quality Image Section (Right Bento/Overlapping) -->
+<div class="col-span-12 lg:col-span-7 order-1 lg:order-2 relative">
+<!-- Main Image Container -->
+<div class="relative z-10 aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-low shadow-[0_40px_100px_rgba(14,29,38,0.06)]">
+<img alt="Modern architectural building with glass facade and sharp angles" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaJLKTU4iXdh35UBpm7Aj-J-A0Z_EB4wOz6us5ZiIAFEwEFGyfOyv1BkrZptdLhTnTzW0yuLxyDlWk9UrplftxWotIAR-ueXUvhWqDkenzZ9efTijI81_1R2t4ZEM_M_VvoLxq7BMq3UK4Hsr_68KSnUQQM-TcWP_59fO67nYTrTuvNuFO9-dPXLQ5jfOBexCwMzHIHPFlEOGGgdqRP5DswZsEmUQgmD6o61rUB9oGSEtuRUkZHuSUP6U9pBsGShpUmCej-XgYG010"/>
+</div>
+<!-- Decorative Background Elements (Notch Style) -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+<div class="absolute -bottom-8 -left-8 w-48 h-48 bg-surface-container-highest rounded-xl -z-10"></div>
+<div class="absolute top-1/4 -right-4 w-2 h-24 bg-primary rounded-full hidden lg:block"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Meta Shell -->
+<footer class="bg-[#f5faff] dark:bg-[#0e1d26] fixed bottom-0 w-full flex justify-between items-center px-16 py-8 no-border space-y-4 flat no shadows z-50">
+<div class="flex items-center gap-6">
+</div>
+<div class="flex items-center space-x-8">
+<a class="font-['Manrope'] text-[0.75rem] uppercase tracking-[0.05em] text-[#36454F]/60 dark:text-[#bbcac1]/60 hover:text-primary transition-colors" href="#">Internal Use Only</a>
+<a class="font-['Manrope'] text-[0.75rem] uppercase tracking-[0.05em] text-[#36454F]/60 dark:text-[#bbcac1]/60 hover:text-primary transition-colors" href="#">Confidential</a>
+</div>
+</footer>
+<script>
+(function(){
+  var cfg=window.NOTCH_SECTION;if(!cfg)return;
+  var KEY='notch_section_timer';
+  function fmt(ms){var s=Math.max(0,Math.floor(ms/1000));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+  var tot=String(cfg.totalMinutes).padStart(2,'0')+':00';
+  function getT(){try{return JSON.parse(sessionStorage.getItem(KEY));}catch(e){return null;}}
+  var wrap=document.getElementById('section-timer-wrap');
+  var disp=document.getElementById('section-timer');
+  function tick(st){var e=Date.now()-st,r=e/(cfg.totalMinutes*60000);disp.textContent=fmt(e)+' / '+tot;disp.style.color=r>=1?'#ba1a1a':r>=0.8?'#d97706':'#51606b';}
+  var st;
+  if(cfg.isIntro){var ex=getT();if(ex&&ex.nn===cfg.nn){st=ex.startTime;}else{st=Date.now();sessionStorage.setItem(KEY,JSON.stringify({nn:cfg.nn,startTime:st}));}}
+  else{var t=getT();if(!t||t.nn!==cfg.nn){if(wrap)wrap.style.display='none';return;}st=t.startTime;}
+  tick(st);setInterval(function(){tick(st);},1000);
+})();
+</script>
+</body></html>
