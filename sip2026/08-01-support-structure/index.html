@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "secondary-fixed": "#d5e5f1",
+          "on-secondary-fixed": "#0e1d26",
+          "surface-container-lowest": "#ffffff",
+          "error": "#ba1a1a",
+          "secondary-fixed-dim": "#b9c9d5",
+          "surface-bright": "#f5faff",
+          "on-tertiary-fixed-variant": "#474646",
+          "primary-container": "#2cc295",
+          "tertiary": "#5f5e5e",
+          "secondary": "#51606b",
+          "on-error-container": "#93000a",
+          "surface-dim": "#ccdce9",
+          "on-background": "#0e1d26",
+          "on-surface-variant": "#3c4a43",
+          "surface-container-highest": "#d5e5f1",
+          "primary-fixed": "#72fac9",
+          "on-tertiary": "#ffffff",
+          "on-secondary-container": "#55656f",
+          "on-primary-fixed": "#002116",
+          "on-secondary": "#ffffff",
+          "on-surface": "#0e1d26",
+          "surface-container-low": "#e9f5ff",
+          "primary": "#006c50",
+          "brand-mint": "#2cc295",
+          "inverse-on-surface": "#e4f3ff",
+          "outline-variant": "#bbcac1",
+          "inverse-primary": "#51ddae",
+          "primary-fixed-dim": "#51ddae",
+          "outline": "#6c7a73",
+          "surface-tint": "#006c50",
+          "tertiary-fixed": "#e5e2e1",
+          "on-tertiary-container": "#414040",
+          "on-primary-fixed-variant": "#00513b",
+          "tertiary-fixed-dim": "#c9c6c5",
+          "on-error": "#ffffff",
+          "surface-variant": "#d5e5f1",
+          "surface-container-high": "#daeaf7",
+          "tertiary-container": "#aeacab",
+          "on-secondary-fixed-variant": "#3a4953",
+          "on-primary-container": "#004a36",
+          "inverse-surface": "#23323c",
+          "background": "#f5faff",
+          "on-tertiary-fixed": "#1c1b1b",
+          "on-primary": "#ffffff",
+          "surface-container": "#e0f0fd",
+          "surface": "#f5faff",
+          "secondary-container": "#d2e2ee",
+          "error-container": "#ffdad6"
+        },
+        fontFamily: {
+          "headline": ["Plus Jakarta Sans"],
+          "body": ["Manrope"],
+          "label": ["Manrope"]
+        },
+        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+</style>
+<script>window.NOTCH_SECTION={nn:"08",totalMinutes:6,isIntro:false};</script>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex flex-col">
+
+<!-- TopAppBar -->
+<header class="bg-[#f5faff] dark:bg-[#0e1d26] fixed top-0 w-full flex justify-between items-center px-16 py-6 z-50">
+  <span class="text-2xl font-black text-[#0e1d26] dark:text-[#f5faff] font-['Plus_Jakarta_Sans'] tracking-tight">Notch</span>
+  <div class="flex items-center gap-3">
+    <a id="nav-agenda" href="../index.html" class="flex items-center gap-2 font-['Manrope'] font-bold text-sm text-secondary hover:text-primary transition-colors duration-200">
+      <span class="material-symbols-outlined" style="font-size: 24px;">menu</span>
+      Agenda
+    </a>
+    <div class="w-[1px] h-8 bg-outline-variant/40 mx-1"></div>
+    <div id="section-timer-wrap" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-secondary" style="font-size:16px;line-height:1;">timer</span>
+      <span id="section-timer" class="font-['Manrope'] font-bold text-sm text-secondary tabular-nums">--:-- / --:--</span>
+    </div>
+    <div class="w-[1px] h-8 bg-outline-variant/40 mx-1"></div>
+    <a id="nav-prev" href="../08-cto/index.html" class="flex items-center justify-center w-12 h-12 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 active:scale-95">
+      <span class="material-symbols-outlined" style="font-size: 28px;">chevron_left</span>
+    </a>
+    <span id="slide-counter" class="font-['Manrope'] font-bold text-base text-secondary tracking-widest select-none px-2">2 / 5</span>
+    <a id="nav-next" href="../08-02-architecture/index.html" class="flex items-center justify-center w-12 h-12 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 active:scale-95">
+      <span class="material-symbols-outlined" style="font-size: 28px;">chevron_right</span>
+    </a>
+  </div>
+</header>
+
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-28 pb-24 px-16 max-w-7xl mx-auto w-full">
+
+  <!-- Slide Header -->
+  <div class="mb-10 flex items-baseline gap-6 border-l-4 border-primary-container pl-6">
+    <div>
+      <span id="overhead-title" class="font-label text-[0.75rem] uppercase tracking-[0.2em] text-secondary font-bold block mb-2">Support</span>
+      <h1 id="slide-title" class="font-headline text-5xl font-extrabold tracking-tight text-on-surface leading-tight">
+        <span id="slide-title-main" class="text-on-surface">Tooling, hiring, learning</span> <span id="slide-title-accent" class="text-[#2CC295]">and standards</span>
+      </h1>
+    </div>
+  </div>
+
+  <!-- Bullet List -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
+
+    <!-- Bullet 1 -->
+    <div id="bullet-item-1" class="flex items-start gap-5 py-6 border-b border-outline-variant/30">
+      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
+      <div>
+        <h3 id="bullet-1-title" class="font-headline font-bold text-base text-on-surface mb-1">Tooling licences for everyone</h3>
+        <p id="bullet-1-body" class="font-body text-sm text-secondary leading-relaxed">Every engineer gets Claude Code or Codex. Licences are covered — there is no tooling barrier. The tools are there, get familiar with them.</p>
+      </div>
+    </div>
+
+    <!-- Bullet 2 -->
+    <div id="bullet-item-2" class="flex items-start gap-5 py-6 border-b border-outline-variant/30">
+      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
+      <div>
+        <h3 id="bullet-2-title" class="font-headline font-bold text-base text-on-surface mb-1">Interview process now covers AI-native skills</h3>
+        <p id="bullet-2-body" class="font-body text-sm text-secondary leading-relaxed">New roles include agentic system design questions and prompt evaluation in the interview. We are not replacing the fundamentals bar — we are adding to it.</p>
+      </div>
+    </div>
+
+    <!-- Bullet 3 -->
+    <div id="bullet-item-3" class="flex items-start gap-5 py-6 border-b border-outline-variant/30">
+      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
+      <div>
+        <h3 id="bullet-3-title" class="font-headline font-bold text-base text-on-surface mb-1">Certification is running and mentorship is live</h3>
+        <p id="bullet-3-body" class="font-body text-sm text-secondary leading-relaxed">The agentic coding certification is already running company-wide — every engineer will be proficient in agentic coding by end of June. Everyone has an appointed mentor with dedicated time carved out of project work. Reach them on Slack or in person.</p>
+      </div>
+    </div>
+
+    <!-- Bullet 4 -->
+    <div id="bullet-item-4" class="flex items-start gap-5 py-6 border-b border-outline-variant/30">
+      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
+      <div>
+        <h3 id="bullet-4-title" class="font-headline font-bold text-base text-on-surface mb-1">Labs and workshops will cover the topics in this presentation</h3>
+        <p id="bullet-4-body" class="font-body text-sm text-secondary leading-relaxed">We will run sessions across the areas covered today — SDLC, ADLC, MDLC, UX/AX, and discovery. Mentors and direction are provided. The time investment is on you.</p>
+      </div>
+    </div>
+
+    <!-- Bullet 5 -->
+    <div id="bullet-item-5" class="flex items-start gap-5 py-6 border-b border-outline-variant/30" style="display:none">
+      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
+      <div>
+        <h3 id="bullet-5-title" class="font-headline font-bold text-base text-on-surface mb-1">Bullet title five</h3>
+        <p id="bullet-5-body" class="font-body text-sm text-secondary leading-relaxed">Supporting detail text for bullet point five.</p>
+      </div>
+    </div>
+
+    <!-- Bullet 6 -->
+    <div id="bullet-item-6" class="flex items-start gap-5 py-6 border-b border-outline-variant/30" style="display:none">
+      <div class="mt-2 w-2 h-2 bg-primary rounded-sm flex-shrink-0"></div>
+      <div>
+        <h3 id="bullet-6-title" class="font-headline font-bold text-base text-on-surface mb-1">Bullet title six</h3>
+        <p id="bullet-6-body" class="font-body text-sm text-secondary leading-relaxed">Supporting detail text for bullet point six.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#f5faff] dark:bg-[#0e1d26] fixed bottom-0 w-full flex justify-between items-center px-16 py-6 z-50">
+  <div></div>
+  <div class="flex space-x-8">
+    <a class="font-['Manrope'] text-[0.65rem] uppercase tracking-[0.05em] text-[#36454F]/60 dark:text-[#bbcac1]/60 hover:text-primary transition-colors" href="#">Internal Use Only</a>
+    <a class="font-['Manrope'] text-[0.65rem] uppercase tracking-[0.05em] text-[#36454F]/60 dark:text-[#bbcac1]/60 hover:text-primary transition-colors" href="#">Confidential</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var cfg=window.NOTCH_SECTION;if(!cfg)return;
+  var KEY='notch_section_timer';
+  function fmt(ms){var s=Math.max(0,Math.floor(ms/1000));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+  var tot=String(cfg.totalMinutes).padStart(2,'0')+':00';
+  function getT(){try{return JSON.parse(sessionStorage.getItem(KEY));}catch(e){return null;}}
+  var wrap=document.getElementById('section-timer-wrap');
+  var disp=document.getElementById('section-timer');
+  function tick(st){var e=Date.now()-st,r=e/(cfg.totalMinutes*60000);disp.textContent=fmt(e)+' / '+tot;disp.style.color=r>=1?'#ba1a1a':r>=0.8?'#d97706':'#51606b';}
+  var st;
+  if(cfg.isIntro){var ex=getT();if(ex&&ex.nn===cfg.nn){st=ex.startTime;}else{st=Date.now();sessionStorage.setItem(KEY,JSON.stringify({nn:cfg.nn,startTime:st}));}}
+  else{var t=getT();if(!t||t.nn!==cfg.nn){if(wrap)wrap.style.display='none';return;}st=t.startTime;}
+  tick(st);setInterval(function(){tick(st);},1000);
+})();
+</script>
+</body></html>
